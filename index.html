@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prime Factorization</title>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script type="module" src="prime.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+	<style>
+		.ft-console{
+			font-family: 'Source Code Pro', monospace;
+		}
+	</style>
+</head>
+
+<body v-scope>
+	<main class="container" style="max-width: 760px;">
+		<section class="section p-3">
+			<h1 class="fw-bold rounded p-3 text-center" style="text-shadow: 0px 2px 5px black; color: rgb(59, 110, 148);">Prime Factorization Calculator</h1>
+			<div class="input-group mb-3">
+				<input id="value" type="number" class="form-control col" v-model="input">
+				<button @click="primeFactors()" class="btn btn-outline-secondary col-4">Calculate</button>
+			</div>
+
+		</section>
+		<section class="section">
+			<div class="card">
+				<div class="card-header">
+					<h3>Output Terminal</h3>
+				</div>
+				<div class="card-body bg-dark text-white ft-console p-3">
+					<!-- I Change this bit of code for displaying the input value, the power of vue -->
+					<p class="mr-3"><span class="text-success">root@user</span>:<span class="text-danger">~</span><span class="text-warning">$</span> <span id="pr" class="text-white-50">{{`PrimeFactors(${input})`}}</span></p>
+                    <span v-if="output != 0">Factors: </span>
+                    <span v-for="number in output" class="text-white">
+                        {{number}}&nbsp;
+                    </span>
+					<pre class="ft-console" v-if="output != 0">{{giga}}</pre>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
